@@ -1,0 +1,22 @@
+development:
+  adapter: mysql2
+  encoding: utf8
+  database: boty_dev
+  username: root
+  password: root
+  host: localhost
+
+test:
+  adapter: mysql2
+  encoding: utf8
+  database: boty_test
+  username: root
+  password: root
+  host: localhost
+
+production:
+  adapter: mysql2
+  encoding: utf8
+  database: boty_prod
+  username: root
+  password: root

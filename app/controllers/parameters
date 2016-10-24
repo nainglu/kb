@@ -1,0 +1,19 @@
+Parameters: {
+	"object"=>"page", 
+	"entry"=>[{
+		"id"=>"1546429422261754", 
+		"time"=>1467871193865, 
+		"messaging"=>[{
+			"sender"=>{
+				"id"=>"881961115265406"
+			}, 
+			"recipient"=>{
+				"id"=>"1546429422261754"
+			}, 
+			"timestamp"=>0, 
+			"delivery"=>{
+				"mids"=>["mid.1467871193238:9277dc0b95a5cc9460"], 
+				"watermark"=>1467871193347, 
+				"seq"=>1024
+				}
+			}, {"sender"=>{"id"=>"881961115265406"}, "recipient"=>{"id"=>"1546429422261754"}, "timestamp"=>1467871193723, "read"=>{"watermark"=>1467871193347, "seq"=>1025}}]}], "bot"=>{"object"=>"page", "entry"=>[{"id"=>"1546429422261754", "time"=>1467871193865, "messaging"=>[{"sender"=>{"id"=>"881961115265406"}, "recipient"=>{"id"=>"1546429422261754"}, "timestamp"=>0, "delivery"=>{"mids"=>["mid.1467871193238:9277dc0b95a5cc9460"], "watermark"=>1467871193347, "seq"=>1024}}, {"sender"=>{"id"=>"881961115265406"}, "recipient"=>{"id"=>"1546429422261754"}, "timestamp"=>1467871193723, "read"=>{"watermark"=>1467871193347, "seq"=>1025}}]}]}}  

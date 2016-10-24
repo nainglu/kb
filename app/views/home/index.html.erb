@@ -1,0 +1,41 @@
+
+<!-- Message Us Button -->
+<div style="margin-top: 100px;">
+  <h1 style="text-align: center">Hey!, Wanna try out the messenger bot?</h1>
+</div>
+<div style="width: 150px; height: 40px; margin:auto;">
+  <div class="fb-messengermessageus" 
+    messenger_app_id="1723547237901391" 
+    page_id="1546429422261754"
+    color="blue"
+    size="large" >
+  </div>
+</div>
+
+
+<script>
+
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId: "1723547237901391",
+      xfbml: true,
+      version: "v2.6"
+    });
+
+  };
+
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) { return; }
+     js = d.createElement(s); js.id = id;
+     js.src = "//connect.facebook.net/en_US/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));
+
+</script>
+
+
+
+
+
+<!-- Message Us Button End Here-->
