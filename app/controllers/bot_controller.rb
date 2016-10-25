@@ -238,8 +238,8 @@ class BotController < ApplicationController
     end
 
     def choose_currency
-      mes = "USD => BUY 1285 SELL 1290, &nbsp;
-             SGD => BUY 915 SELL 925,
+      mes = "*_USD_* *BUY 1285 SELL 1290*
+             *_SGD_* *BUY 915 SELL 925*,
              EUR => BUY 1380 SELL 1402,
              BAHT=> BUY 36.2 SELL 36.8"
     end
