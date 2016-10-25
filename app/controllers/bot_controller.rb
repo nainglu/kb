@@ -39,21 +39,16 @@ class BotController < ApplicationController
         elsif text == "atmlocation"
           res = "ATM ရွိေသာေနရာမ်ား"
           mes = {
-            "attachment":{
-              "type":"template",
-              "payload":{
-                "buttons":[
-                  {
-                    "type":"web_url",
-                    "url":"https://www.kbzbank.com/en/ways-to-bank/atm-banking/",
-                    "title":"Select Criteria",
-                    "webview_height_ratio": "full",
-                    "messenger_extensions": true,  
-                    "fallback_url": "https://petersfancyapparel.com/fallback"
-                  }
-                ]
+            "buttons":[
+              {
+                "type":"web_url",
+                "url":"https://petersfancyapparel.com/criteria_selector",
+                "title":"Select Criteria",
+                "webview_height_ratio": "full",
+                "messenger_extensions": true,  
+                "fallback_url": "https://petersfancyapparel.com/fallback"
               }
-            }
+            ]
           }
           FacebookBot.new.send_text_message(sender, res)
           FacebookBot.new.send_generic_message(sender, mes)
