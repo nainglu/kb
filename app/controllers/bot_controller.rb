@@ -21,8 +21,8 @@ class BotController < ApplicationController
       unless text == "aaa"
         if greeting.include? text
           FacebookBot.new.send_generic_message(sender, choose_topic)
-        elsif text == "Website Design"
-          FacebookBot.new.send_generic_message(sender, choose_web_pack)
+        elsif text == "atmservice"
+          FacebookBot.new.send_generic_message(sender, choose_atm_topic)
         elsif text == "ျပန္လည္ေရြးခ်ယ္မည္"
           FacebookBot.new.send_generic_message(sender, choose_again)
         elsif text == "ျပန္လည္ေရြးခ်ယ္မည္။"
@@ -36,15 +36,17 @@ class BotController < ApplicationController
           FacebookBot.new.send_generic_message(sender, generic)
         elsif text == "call"
           FacebookBot.new.send_text_message(sender, "Please Dial '09 2649 83474'")
-        elsif text == "Basic"
-          res = "Basic Package"
+        elsif text == "atmlocation"
+          res = "ATM ရွိေသာေနရာမ်ား"
           mes = {
-            "attachment":{
-              "type":"image",
-              "payload":{
-                "url":"https://webfactorymm.com/bots/files/web_pack_basic.jpg"
+            "buttons":[
+              {
+                "type":"web_url",
+                "url":"https://www.kbzbank.com/en/ways-to-bank/atm-banking/",
+                "title":"View Locations",
+                "webview_height_ratio": "compact"
               }
-            }
+            ]
           }
           FacebookBot.new.send_text_message(sender, res)
           FacebookBot.new.send_generic_message(sender, mes)
@@ -170,18 +172,18 @@ class BotController < ApplicationController
                 "buttons":[
                   {
                     "type":"postback",
-                    "title":"Website Design",
-                    "payload":"Website Design"
+                    "title":"ATM Services",
+                    "payload":"atmservice"
                   },
                   {
                     "type":"postback",
-                    "title":"Domain & Hosting Services",
+                    "title":"Currency Exchange",
                     "payload":"support"
                   },
                   {
                     "type":"postback",
-                    "title":"Email Registration",
-                    "payload":"emailreg"
+                    "title":"Career",
+                    "payload":"career"
                   }
                 ]
               }
@@ -207,28 +209,23 @@ class BotController < ApplicationController
         }
     end
 
-    def choose_web_pack
+    def choose_atm_topic
       mes = {
             "attachment":{
               "type":"template",
               "payload":{
                 "template_type":"button",
-                "text":"ဟုတ္ကဲ႔ပါရွင္။ အမ်ိဴးအစား (၃) မ်ဴိးရွိပါတယ္။ မည္သည့္ အမ်ိဴးအစားကုိ ေရြးခ်ယ္လုိပါသလဲ။",
+                "text":"အေသးစိတ္ကုိထပ္မံ ေရြးခ်ယ္ပါ။",
                 "buttons":[
                   {
                     "type":"postback",
-                    "title":"Basic",
-                    "payload":"Basic"
+                    "title":"ATM Locations",
+                    "payload":"atmlocation"
                   },
                   {
                     "type":"postback",
-                    "title":"Standard",
-                    "payload":"Standard"
-                  },
-                  {
-                    "type":"postback",
-                    "title":"Premium",
-                    "payload":"Premium"
+                    "title":"Card Information",
+                    "payload":"cardinfo"
                   }
                 ]
               }
