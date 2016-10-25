@@ -247,7 +247,7 @@ class BotController < ApplicationController
                   "elements":[
                     {
                       "title":"KBZ Bank",
-                      "image_url": image_url('fbpp.jpg'),
+                      "image_url":"https://www.facebook.com/KBZCards/photos/a.260138284157236.1073741827.254547431382988/579738902197171/?type=1&theater",
                       "subtitle":"ယခုလုိေမးျမန္းျခင္းအတြက္ ေက်းဇူးအထူးတင္ရွိပါသည္။",
                       "buttons":[
                         {
