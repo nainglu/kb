@@ -47,7 +47,7 @@ class BotController < ApplicationController
                   {
                     "type":"web_url",
                     "url":"https://www.kbzbank.com/en/ways-to-bank/atm-banking/",
-                    "title":"View Item",
+                    "title":"View Locations",
                     "webview_height_ratio": "compact"
                   }
                 ]
@@ -55,7 +55,6 @@ class BotController < ApplicationController
             }
           }
           FacebookBot.new.send_generic_message(sender, mes)
-          FacebookBot.new.send_generic_message(sender, choose_again_quick)
         elsif text == "Standard"
           res = "Standard Package"
           mes = {
@@ -82,8 +81,8 @@ class BotController < ApplicationController
           FacebookBot.new.send_text_message(sender, res)
           FacebookBot.new.send_generic_message(sender, mes)
           FacebookBot.new.send_generic_message(sender, choose_again_quick)
-        elsif text == "support"
-          FacebookBot.new.send_generic_message(sender, choose_support)
+        elsif text == "exchange"
+          FacebookBot.new.send_text_message(sender, choose_currency)
         elsif text == "support_gold"
           res = "Gold Plan"
           mes = {
@@ -183,7 +182,7 @@ class BotController < ApplicationController
                   {
                     "type":"postback",
                     "title":"Currency Exchange",
-                    "payload":"support"
+                    "payload":"exchange"
                   },
                   {
                     "type":"postback",
@@ -238,33 +237,11 @@ class BotController < ApplicationController
           }
     end
 
-    def choose_support
-      mes = {
-            "attachment":{
-              "type":"template",
-              "payload":{
-                "template_type":"button",
-                "text":"ဟုတ္ကဲ႔ပါရွင္။ အမ်ိဴးအစား (၃) မ်ဴိးရွိပါတယ္။ မည္သည့္ အမ်ိဴးအစားကုိ ေရြးခ်ယ္လုိပါသလဲခင္ဗ်ာ။",
-                "buttons":[
-                  {
-                    "type":"postback",
-                    "title":"Gold",
-                    "payload":"support_gold"
-                  },
-                  {
-                    "type":"postback",
-                    "title":"Platinum",
-                    "payload":"support_plat"
-                  },
-                  {
-                    "type":"postback",
-                    "title":"Diamond",
-                    "payload":"support_dia"
-                  }
-                ]
-              }
-            }
-          }
+    def choose_currency
+      mes = "USD => BUY 1285 SELL 1290,
+             SGD => BUY 915 SELL 925,
+             EUR => BUY 1380 SELL 1402,
+             BAHT=> BUY 36.2 SELL 36.8"
     end
 
     def choose_again_quick
