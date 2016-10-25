@@ -182,21 +182,6 @@ class BotController < ApplicationController
                     "type":"postback",
                     "title":"Email Registration",
                     "payload":"emailreg"
-                  },
-                  {
-                    "type":"postback",
-                    "title":"Email Registration",
-                    "payload":"emailreg"
-                  },
-                  {
-                    "type":"postback",
-                    "title":"Email Registration",
-                    "payload":"emailreg"
-                  },
-                  {
-                    "type":"postback",
-                    "title":"Email Registration",
-                    "payload":"emailreg"
                   }
                 ]
               }
