@@ -246,8 +246,8 @@ class BotController < ApplicationController
                   "template_type":"generic",
                   "elements":[
                     {
-                      "title":"Web Factory",
-                      "image_url":"https://webfactorymm.com/bots/files/kbz.jpg",
+                      "title":"KBZ Bank",
+                      "image_url": image_url('fbpp.jpg'),
                       "subtitle":"ယခုလုိေမးျမန္းျခင္းအတြက္ ေက်းဇူးအထူးတင္ရွိပါသည္။",
                       "buttons":[
                         {
