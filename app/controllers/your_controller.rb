@@ -1,7 +1,7 @@
 class YourController < ApplicationController
 
   def showpic
-    @path = image_url(params[:image]);
+    @path = File.join(Rails.root, params[:path]) # or similar
   end
 
   def show
