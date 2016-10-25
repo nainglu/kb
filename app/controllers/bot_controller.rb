@@ -21,7 +21,7 @@ class BotController < ApplicationController
       unless text == "aaa"
         if greeting.include? text
           FacebookBot.new.send_generic_message(sender, choose_topic)
-        elsif text == "ATM Services"
+        elsif text == "atmservice" || text == "ATM Services"
           FacebookBot.new.send_generic_message(sender, choose_atm_topic)
         elsif text == "ျပန္လည္ေရြးခ်ယ္မည္"
           FacebookBot.new.send_generic_message(sender, choose_again_support)
@@ -36,7 +36,7 @@ class BotController < ApplicationController
           FacebookBot.new.send_generic_message(sender, generic)
         elsif text == "call"
           FacebookBot.new.send_text_message(sender, "Please Dial '01-538075', '01-538076', '01-538078'")
-        elsif text == "ATM Locations"
+        elsif text == "atmlocation" || text == "ATM Locations"
           mes = {
             "attachment":{
               "type":"template",
@@ -56,7 +56,7 @@ class BotController < ApplicationController
           }
           FacebookBot.new.send_generic_message(sender, mes)
           FacebookBot.new.send_generic_message(sender, back_support)
-        elsif text == "Card Informations"
+        elsif text == "cardinfo" || text == "Card Informations"
           mes = {
             "attachment":{
               "type":"template",
@@ -76,9 +76,9 @@ class BotController < ApplicationController
           }
           FacebookBot.new.send_generic_message(sender, mes)
           FacebookBot.new.send_generic_message(sender, back_support)
-        elsif text == "Currency Exchange"
+        elsif text == "exchange" || text == "Currency Exchange"
           FacebookBot.new.send_text_message(sender, choose_currency)
-        elsif text == "Career"
+        elsif text == "career" || text == "Career"
           mes = {
             "attachment":{
               "type":"template",
