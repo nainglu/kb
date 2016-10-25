@@ -45,10 +45,34 @@ class BotController < ApplicationController
                 "text":"ATM ရွိေသာေနရာမ်ား",
                 "buttons":[
                   {
-                    "type":"web_url",
-                    "url":"https://www.kbzbank.com/en/ways-to-bank/atm-banking/",
-                    "title":"View Locations",
-                    "webview_height_ratio": "compact"
+                    "type":"postback",
+                    "title":"Ahlone",
+                    "payload": "ahlone"
+                  },
+                  {
+                    "type":"postback",
+                    "title":"Bahan",
+                    "payload": "bahan"
+                  },
+                  {
+                    "type":"postback",
+                    "title":"Dagon",
+                    "payload": "dagon"
+                  },
+                  {
+                    "type":"postback",
+                    "title":"Hlaing",
+                    "payload": "hlaing"
+                  },
+                  {
+                    "type":"postback",
+                    "title":"Kamaryut",
+                    "payload": "kamaryut"
+                  },
+                  {
+                    "type":"postback",
+                    "title":"Pazundaung",
+                    "payload": "pazundaung"
                   }
                 ]
               }
