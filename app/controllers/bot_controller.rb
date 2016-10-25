@@ -35,7 +35,7 @@ class BotController < ApplicationController
         elsif text == "မလုပ္ေဆာင္ေတာ့ပါ။"
           FacebookBot.new.send_generic_message(sender, generic)
         elsif text == "call"
-          FacebookBot.new.send_text_message(sender, "Please Dial '09 2649 83474'")
+          FacebookBot.new.send_text_message(sender, "Please Dial '01-538075', '01-538076', '01-538078'")
         elsif text == "atmlocation"
           mes = {
             "attachment":{
