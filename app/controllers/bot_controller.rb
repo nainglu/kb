@@ -55,6 +55,7 @@ class BotController < ApplicationController
             }
           }
           FacebookBot.new.send_generic_message(sender, mes)
+          FacebookBot.new.send_generic_message(sender, back_support)
         elsif text == "cardinfo"
           mes = {
             "attachment":{
@@ -74,6 +75,7 @@ class BotController < ApplicationController
             }
           }
           FacebookBot.new.send_generic_message(sender, mes)
+          FacebookBot.new.send_generic_message(sender, back_support)
         elsif text == "exchange"
           FacebookBot.new.send_text_message(sender, choose_currency)
         elsif text == "career"
@@ -183,7 +185,8 @@ class BotController < ApplicationController
     end
 
     def choose_currency
-      mes = "   _USD_
+      mes = "
+      _USD_
       BUY 1285 - SELL 1290,
       _SGD_
       BUY 915 - SELL 925,
