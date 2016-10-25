@@ -251,6 +251,7 @@ class BotController < ApplicationController
                   "elements":[
                     {
                       "title":"KBZ Bank",
+                      "image_url": "http://kbbot.herokuapp.com/images/fbpp.jpg",
                       "subtitle":"ယခုလုိေမးျမန္းျခင္းအတြက္ ေက်းဇူးအထူးတင္ရွိပါသည္။",
                       "buttons":[
                         {
