@@ -37,20 +37,23 @@ class BotController < ApplicationController
         elsif text == "call"
           FacebookBot.new.send_text_message(sender, "Please Dial '09 2649 83474'")
         elsif text == "atmlocation"
-          res = "ATM ရွိေသာေနရာမ်ား"
           mes = {
-            "buttons":[
-              {
-                "type":"web_url",
-                "url":"https://petersfancyapparel.com/criteria_selector",
-                "title":"Select Criteria",
-                "webview_height_ratio": "full",
-                "messenger_extensions": true,  
-                "fallback_url": "https://petersfancyapparel.com/fallback"
+            "attachment":{
+              "type":"template",
+              "payload":{
+                "template_type":"button",
+                "text":"ATM ရွိေသာေနရာမ်ား",
+                "buttons":[
+                  {
+                    "type":"web_url",
+                    "url":"https://www.kbzbank.com/en/ways-to-bank/atm-banking/",
+                    "title":"View Item",
+                    "webview_height_ratio": "compact"
+                  }
+                ]
               }
-            ]
+            }
           }
-          FacebookBot.new.send_text_message(sender, res)
           FacebookBot.new.send_generic_message(sender, mes)
           FacebookBot.new.send_generic_message(sender, choose_again_quick)
         elsif text == "Standard"
