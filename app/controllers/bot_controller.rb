@@ -76,6 +76,25 @@ class BotController < ApplicationController
           FacebookBot.new.send_generic_message(sender, mes)
         elsif text == "exchange"
           FacebookBot.new.send_text_message(sender, choose_currency)
+        elsif text == "career"
+          mes = {
+            "attachment":{
+              "type":"template",
+              "payload":{
+                "template_type":"button",
+                "text":"Careers",
+                "buttons":[
+                  {
+                    "type":"web_url",
+                    "url":"https://www.kbzbank.com/en/about-us/careers/",
+                    "title":"View Careers",
+                    "webview_height_ratio": "compact"
+                  }
+                ]
+              }
+            }
+          }
+          FacebookBot.new.send_generic_message(sender, mes)
         else
           t = params["entry"][0]["messaging"][0]
           FacebookBot.new.send_text_message(sender, t)
