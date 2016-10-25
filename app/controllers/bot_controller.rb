@@ -74,89 +74,8 @@ class BotController < ApplicationController
             }
           }
           FacebookBot.new.send_generic_message(sender, mes)
-        elsif text == "Premium"
-          res = "Premium Package"
-          mes = {
-            "attachment":{
-              "type":"image",
-              "payload":{
-                "url":"https://webfactorymm.com/bots/files/web_pack_premium.jpg"
-              }
-            }
-          }
-          FacebookBot.new.send_text_message(sender, res)
-          FacebookBot.new.send_generic_message(sender, mes)
-          FacebookBot.new.send_generic_message(sender, choose_again_quick)
         elsif text == "exchange"
           FacebookBot.new.send_text_message(sender, choose_currency)
-        elsif text == "support_gold"
-          res = "Gold Plan"
-          mes = {
-            "attachment":{
-              "type":"image",
-              "payload":{
-                "url":"https://webfactorymm.com/bots/files/support_gold.jpg"
-              }
-            }
-          }
-          FacebookBot.new.send_text_message(sender, res)
-          FacebookBot.new.send_generic_message(sender, mes)
-          FacebookBot.new.send_generic_message(sender, back_support)
-        elsif text == "support_plat"
-          res = "Platinum Plan"
-          mes = {
-            "attachment":{
-              "type":"image",
-              "payload":{
-                "url":"https://webfactorymm.com/bots/files/support_paltinum.jpg"
-              }
-            }
-          }
-          FacebookBot.new.send_text_message(sender, res)
-          FacebookBot.new.send_generic_message(sender, mes)
-          FacebookBot.new.send_generic_message(sender, back_support)
-        elsif text == "support_dia"
-          res = "Diamond Plan"
-          mes = {
-            "attachment":{
-              "type":"image",
-              "payload":{
-                "url":"https://webfactorymm.com/bots/files/support_diamond.jpg"
-              }
-            }
-          }
-          FacebookBot.new.send_text_message(sender, res)
-          FacebookBot.new.send_generic_message(sender, mes)
-          FacebookBot.new.send_generic_message(sender, back_support)
-        elsif text == "emailreg" || text == "ျပန္လည္ေရြးခ်ယ္မည္၊"
-          FacebookBot.new.send_generic_message(sender, choose_email_quick)
-        elsif text == "Google"
-          res = "Google Mail"
-          mes = {
-            "attachment":{
-              "type":"image",
-              "payload":{
-                "url":"https://webfactorymm.com/bots/files/email_google.jpg"
-              }
-            }
-          }
-          FacebookBot.new.send_text_message(sender, res)
-          FacebookBot.new.send_generic_message(sender, mes)
-          FacebookBot.new.send_generic_message(sender, back_email)
-        elsif text == "Rackspace"
-          res = "Rackspace Mail"
-          mes = {
-            "attachment":{
-              "type":"image",
-              "payload":{
-                "url":"https://webfactorymm.com/bots/files/email_rack.jpg"
-              }
-            }
-          }
-          
-          FacebookBot.new.send_text_message(sender, res)
-          FacebookBot.new.send_generic_message(sender, mes)
-          FacebookBot.new.send_generic_message(sender, back_email)
         else
           t = params["entry"][0]["messaging"][0]
           FacebookBot.new.send_text_message(sender, t)
@@ -268,24 +187,7 @@ class BotController < ApplicationController
         }
     end
 
-    def choose_email_quick
-      mes = {
-          "text":"ဝန္ေဆာင္မႈေပးသည့္ ကုမၸဏီေရြးခ်ယ္ပါ။",
-          "quick_replies":[
-            {
-              "content_type":"text",
-              "title":"Google",
-              "payload":"google"
-            },
-            {
-              "content_type":"text",
-              "title":"Rackspace",
-              "payload":"rack"
-            }
-          ]
-        }
-    end
-
+    
     def choose_again
       mes = {
             "attachment":{
@@ -315,35 +217,7 @@ class BotController < ApplicationController
           }
     end
 
-    def choose_again_support
-      mes = {
-            "attachment":{
-              "type":"template",
-              "payload":{
-                "template_type":"button",
-                "text":"သိရွိလုိသည့္ အမ်ဴိးအစားကုိ ျပန္လည္ေရြးခ်ယ္ပါ။",
-                "buttons":[
-                  {
-                    "type":"postback",
-                    "title":"Gold",
-                    "payload":"support_gold"
-                  },
-                  {
-                    "type":"postback",
-                    "title":"Platinum",
-                    "payload":"support_plat"
-                  },
-                  {
-                    "type":"postback",
-                    "title":"Diamond",
-                    "payload":"support_dia"
-                  }
-                ]
-              }
-            }
-          }
-    end
-
+   
     def generic
       mes = {
               "attachment":{
