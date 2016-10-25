@@ -58,21 +58,6 @@ class BotController < ApplicationController
                     "type":"postback",
                     "title":"Dagon",
                     "payload": "dagon"
-                  },
-                  {
-                    "type":"postback",
-                    "title":"Hlaing",
-                    "payload": "hlaing"
-                  },
-                  {
-                    "type":"postback",
-                    "title":"Kamaryut",
-                    "payload": "kamaryut"
-                  },
-                  {
-                    "type":"postback",
-                    "title":"Pazundaung",
-                    "payload": "pazundaung"
                   }
                 ]
               }
