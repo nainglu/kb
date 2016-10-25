@@ -72,7 +72,8 @@ class BotController < ApplicationController
           FacebookBot.new.send_generic_message(sender, mes)
           FacebookBot.new.send_generic_message(sender, back_support)
         elsif text == "exchange" || text == "Currency Exchange"
-          FacebookBot.new.send_text_message(sender, choose_currency)
+          FacebookBot.new.send_generic_message(sender, choose_currency)
+          FacebookBot.new.send_generic_message(sender, back_support)
         elsif text == "career" || text == "Career"
           mes = {
             "attachment":{
@@ -181,16 +182,14 @@ class BotController < ApplicationController
     end
 
     def choose_currency
-      mes = "
-
-      _USD_
-      BUY 1285 - SELL 1290,
-      _SGD_
-      BUY 915 - SELL 925,
-      _EUR_
-      BUY 1380 - SELL 1402,
-      _BAHT_
-      BUY 36.2 - SELL 36.8"
+      mes = {
+              "attachment":{
+              "type":"image",
+              "payload":{
+              "url":"http://kbbot.herokuapp.com/images/fbpp.jpg"
+            }
+          }
+        }
     end
 
     def choose_again_quick
