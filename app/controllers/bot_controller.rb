@@ -24,9 +24,9 @@ class BotController < ApplicationController
         elsif text == "atmservice"
           FacebookBot.new.send_generic_message(sender, choose_atm_topic)
         elsif text == "ျပန္လည္ေရြးခ်ယ္မည္"
-          FacebookBot.new.send_generic_message(sender, choose_again)
-        elsif text == "ျပန္လည္ေရြးခ်ယ္မည္။"
           FacebookBot.new.send_generic_message(sender, choose_again_support)
+        elsif text == "ျပန္လည္ေရြးခ်ယ္မည္။"
+          FacebookBot.new.send_generic_message(sender, choose_again)
         elsif text == "မေရြးခ်ယ္ေတာ့ပါ။"
           FacebookBot.new.send_generic_message(sender, generic)
         elsif text == "အစသုိ႔ျပန္သြားမည္။"
@@ -96,8 +96,9 @@ class BotController < ApplicationController
           }
           FacebookBot.new.send_generic_message(sender, mes)
         else
-          t = params["entry"][0]["messaging"][0]
-          FacebookBot.new.send_text_message(sender, t)
+          res = "သင္၏ေျပာၾကားခ်က္ကုိ auto reply မွနားမလည္ပါ။"
+          FacebookBot.new.send_text_message(sender, res)
+          FacebookBot.new.send_generic_message(sender, back_support)
         end
       end
       render :nothing => true, :status => 200, :content_type => 'text/html'
@@ -217,18 +218,18 @@ class BotController < ApplicationController
                 "buttons":[
                   {
                     "type":"postback",
-                    "title":"Basic",
-                    "payload":"Basic"
+                    "title":"ATM Services",
+                    "payload":"atmservice"
                   },
                   {
                     "type":"postback",
-                    "title":"Standard",
-                    "payload":"Standard"
+                    "title":"Currency Exchange",
+                    "payload":"exchange"
                   },
                   {
                     "type":"postback",
-                    "title":"Premium",
-                    "payload":"Premium"
+                    "title":"Career",
+                    "payload":"career"
                   }
                 ]
               }
@@ -246,7 +247,7 @@ class BotController < ApplicationController
                   "elements":[
                     {
                       "title":"Web Factory",
-                      "image_url":"https://webfactorymm.com/bots/files/webfactory.jpg",
+                      "image_url":"https://webfactorymm.com/bots/files/kbz.jpg",
                       "subtitle":"ယခုလုိေမးျမန္းျခင္းအတြက္ ေက်းဇူးအထူးတင္ရွိပါသည္။",
                       "buttons":[
                         {
