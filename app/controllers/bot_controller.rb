@@ -55,19 +55,25 @@ class BotController < ApplicationController
             }
           }
           FacebookBot.new.send_generic_message(sender, mes)
-        elsif text == "Standard"
-          res = "Standard Package"
+        elsif text == "cardinfo"
           mes = {
             "attachment":{
-              "type":"image",
+              "type":"template",
               "payload":{
-                "url":"https://webfactorymm.com/bots/files/web_pack_standard.jpg"
+                "template_type":"button",
+                "text":"Card Informations",
+                "buttons":[
+                  {
+                    "type":"web_url",
+                    "url":"https://www.kbzbank.com/en/cards/",
+                    "title":"View Informations",
+                    "webview_height_ratio": "compact"
+                  }
+                ]
               }
             }
           }
-          FacebookBot.new.send_text_message(sender, res)
           FacebookBot.new.send_generic_message(sender, mes)
-          FacebookBot.new.send_generic_message(sender, choose_again_quick)
         elsif text == "Premium"
           res = "Premium Package"
           mes = {
@@ -228,7 +234,7 @@ class BotController < ApplicationController
                   },
                   {
                     "type":"postback",
-                    "title":"Card Information",
+                    "title":"Card Informations",
                     "payload":"cardinfo"
                   }
                 ]
