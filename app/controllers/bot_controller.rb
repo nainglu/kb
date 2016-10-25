@@ -97,6 +97,7 @@ class BotController < ApplicationController
             }
           }
           FacebookBot.new.send_generic_message(sender, mes)
+          FacebookBot.new.send_generic_message(sender, back_support)
         else
           res = "သင္၏ေျပာၾကားခ်က္ကုိ auto reply မွနားမလည္ပါ။"
           FacebookBot.new.send_text_message(sender, res)
@@ -166,7 +167,7 @@ class BotController < ApplicationController
               "type":"template",
               "payload":{
                 "template_type":"button",
-                "text":"အေသးစိတ္ကုိထပ္မံ ေရြးခ်ယ္ပါ။",
+                "text": image_url(),
                 "buttons":[
                   {
                     "type":"postback",
