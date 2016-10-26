@@ -105,7 +105,7 @@ class BotController < ApplicationController
                 "buttons":[
                   {
                     "type":"web_url",
-                    "url":"https://www.google.com.mm/maps/dir/''/KBZ+ATM,+Hanthawaddy+Road,+Yangon/@16.8136185,96.0630624,12z/data=!3m1!4b1!4m8!4m7!1m0!1m5!1m1!1s0x30c1eb4995f06a93:0x78f819b245bd935b!2m2!1d96.1331029!2d16.8136304",
+                    "url":"https://www.google.com.mm/maps/search/kbz+bank+in+Ahlone,+Yangon,+Yangon+Region/@16.771094,96.1512332,15z/data=!3m1!4b1",
                     "title":"View On Map",
                     "webview_height_ratio": "compact"
                   }
@@ -271,6 +271,8 @@ class BotController < ApplicationController
           FacebookBot.new.send_generic_message(sender, mes)
           FacebookBot.new.send_generic_message(sender, back_support)
         elsif text == "exchange" || text == "Currency Exchange"
+          res = "ေအာက္ေဖာ္ျပပါ ႏွူန္းထားမ်ားမွာ 25.10.2016 ရက္ေန႔တြင္ရရွိေသာ ႏွူန္းထားမ်ားျဖစ္ပါသည္။"
+          FacebookBot.new.send_text_message(sender, res)
           FacebookBot.new.send_generic_message(sender, choose_currency)
           FacebookBot.new.send_generic_message(sender, back_support)
         elsif text == "career" || text == "Career"
