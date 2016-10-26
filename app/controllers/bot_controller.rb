@@ -34,6 +34,208 @@ class BotController < ApplicationController
           FacebookBot.new.send_generic_message(sender, choose_topic)
         elsif text == "မလုပ္ေဆာင္ေတာ့ပါ။"
           FacebookBot.new.send_generic_message(sender, generic)
+        elsif text == "Bahan" || text == "bahan" || text == "ba han" || text == "Ba Han"
+          mes = {
+            "attachment":{
+              "type":"template",
+              "payload":{
+                "template_type":"button",
+                "text":"ATM in Bahan",
+                "buttons":[
+                  {
+                    "type":"web_url",
+                    "url":"https://www.google.com.mm/maps/dir/''/KBZ+ATM,+U+Chit+Maung+Rd,+Yangon/@16.816299,96.0980961,12z/data=!3m1!4b1!4m8!4m7!1m0!1m5!1m1!1s0x30c1ecb385a272a3:0x133a3a299e9803da!2m2!1d96.1681366!2d16.8163109",
+                    "title":"View On Map",
+                    "webview_height_ratio": "compact"
+                  }
+                ]
+              }
+            }
+          }
+          FacebookBot.new.send_generic_message(sender, mes)
+          FacebookBot.new.send_generic_message(sender, back_support)
+        elsif text == "Kamaryut" || text == "Kamayut" || text == "ka ma yut" || text == "ka mar yut" ||
+          text == "kamaryut" || text == "kamayut"
+          mes = {
+            "attachment":{
+              "type":"template",
+              "payload":{
+                "template_type":"button",
+                "text":"ATM in Kamaryut",
+                "buttons":[
+                  {
+                    "type":"web_url",
+                    "url":"https://www.google.com.mm/maps/dir/''/Kanbawza+Bank,+Kamaryut+Branch,+Yangon/@16.8325306,96.0623348,12z/data=!3m1!4b1!4m8!4m7!1m0!1m5!1m1!1s0x30c194b7f7af0dbd:0x920350f3e1dc3a1c!2m2!1d96.1323753!2d16.8325425",
+                    "title":"View On Map",
+                    "webview_height_ratio": "compact"
+                  }
+                ]
+              }
+            }
+          }
+          FacebookBot.new.send_generic_message(sender, mes)
+          FacebookBot.new.send_generic_message(sender, back_support)
+        elsif text == "Sanchaung" || text == "sanchaung" || text == "san chaung" || text == "San Chaung"
+          mes = {
+            "attachment":{
+              "type":"template",
+              "payload":{
+                "template_type":"button",
+                "text":"ATM in Sanchaung",
+                "buttons":[
+                  {
+                    "type":"web_url",
+                    "url":"https://www.google.com.mm/maps/dir/''/KBZ+ATM,+Hanthawaddy+Road,+Yangon/@16.8136185,96.0630624,12z/data=!3m1!4b1!4m8!4m7!1m0!1m5!1m1!1s0x30c1eb4995f06a93:0x78f819b245bd935b!2m2!1d96.1331029!2d16.8136304",
+                    "title":"View On Map",
+                    "webview_height_ratio": "compact"
+                  }
+                ]
+              }
+            }
+          }
+          FacebookBot.new.send_generic_message(sender, mes)
+          FacebookBot.new.send_generic_message(sender, back_support)
+        elsif text == "Ahlone" || text == "ahlone" || text == "a lone" || text == "A lone" || text == "Ah Lone"
+          mes = {
+            "attachment":{
+              "type":"template",
+              "payload":{
+                "template_type":"button",
+                "text":"ATM in Ahlone",
+                "buttons":[
+                  {
+                    "type":"web_url",
+                    "url":"https://www.google.com.mm/maps/dir/''/KBZ+ATM,+Hanthawaddy+Road,+Yangon/@16.8136185,96.0630624,12z/data=!3m1!4b1!4m8!4m7!1m0!1m5!1m1!1s0x30c1eb4995f06a93:0x78f819b245bd935b!2m2!1d96.1331029!2d16.8136304",
+                    "title":"View On Map",
+                    "webview_height_ratio": "compact"
+                  }
+                ]
+              }
+            }
+          }
+          FacebookBot.new.send_generic_message(sender, mes)
+          FacebookBot.new.send_generic_message(sender, back_support)
+        elsif text == "Dagon" || text == "dagon" || text == "da gon"
+          mes = {
+            "attachment":{
+              "type":"template",
+              "payload":{
+                "template_type":"button",
+                "text":"ATM in Dagon",
+                "buttons":[
+                  {
+                    "type":"web_url",
+                    "url":"https://www.google.com.mm/maps/dir/''/KBZ+ATM,+Hanthawaddy+Road,+Yangon/@16.8136185,96.0630624,12z/data=!3m1!4b1!4m8!4m7!1m0!1m5!1m1!1s0x30c1eb4995f06a93:0x78f819b245bd935b!2m2!1d96.1331029!2d16.8136304",
+                    "title":"View On Map",
+                    "webview_height_ratio": "compact"
+                  }
+                ]
+              }
+            }
+          }
+          FacebookBot.new.send_generic_message(sender, mes)
+          FacebookBot.new.send_generic_message(sender, back_support)
+        elsif text == "Tamwe" || text == "tarmwe" || text == "Tar Mwe" || text == "Tar Mway" || text == "tar mwe"
+          mes = {
+            "attachment":{
+              "type":"template",
+              "payload":{
+                "template_type":"button",
+                "text":"ATM in Tamwe",
+                "buttons":[
+                  {
+                    "type":"web_url",
+                    "url":"https://www.google.com.mm/maps/dir/''/KBZ+ATM,+U+Chit+Maung+Rd,+Yangon/@16.816299,96.0980961,12z/data=!3m1!4b1!4m8!4m7!1m0!1m5!1m1!1s0x30c1ecb385a272a3:0x133a3a299e9803da!2m2!1d96.1681366!2d16.8163109",
+                    "title":"View On Map",
+                    "webview_height_ratio": "compact"
+                  }
+                ]
+              }
+            }
+          }
+          FacebookBot.new.send_generic_message(sender, mes)
+          FacebookBot.new.send_generic_message(sender, back_support)
+        elsif text == "Pabedan" || text == "pabedan" || text == "Pa Be Dan" || text == "pa be dan"
+          mes = {
+            "attachment":{
+              "type":"template",
+              "payload":{
+                "template_type":"button",
+                "text":"ATM in Pabedan",
+                "buttons":[
+                  {
+                    "type":"web_url",
+                    "url":"https://www.google.com.mm/maps/dir/''/KBZ+ATM,+U+Chit+Maung+Rd,+Yangon/@16.816299,96.0980961,12z/data=!3m1!4b1!4m8!4m7!1m0!1m5!1m1!1s0x30c1ecb385a272a3:0x133a3a299e9803da!2m2!1d96.1681366!2d16.8163109",
+                    "title":"View On Map",
+                    "webview_height_ratio": "compact"
+                  }
+                ]
+              }
+            }
+          }
+          FacebookBot.new.send_generic_message(sender, mes)
+          FacebookBot.new.send_generic_message(sender, back_support)
+        elsif text == "Latha" || text == "Lathar" || text == "La Tha" || text == "La Thar" || text == "la thar" ||
+          text == "la tha"
+          mes = {
+            "attachment":{
+              "type":"template",
+              "payload":{
+                "template_type":"button",
+                "text":"ATM in Latha",
+                "buttons":[
+                  {
+                    "type":"web_url",
+                    "url":"https://www.google.com.mm/maps/dir/''/KBZ+ATM,+U+Chit+Maung+Rd,+Yangon/@16.816299,96.0980961,12z/data=!3m1!4b1!4m8!4m7!1m0!1m5!1m1!1s0x30c1ecb385a272a3:0x133a3a299e9803da!2m2!1d96.1681366!2d16.8163109",
+                    "title":"View On Map",
+                    "webview_height_ratio": "compact"
+                  }
+                ]
+              }
+            }
+          }
+          FacebookBot.new.send_generic_message(sender, mes)
+          FacebookBot.new.send_generic_message(sender, back_support)
+        elsif text == "Hlaing" || text == "hlaing"
+          mes = {
+            "attachment":{
+              "type":"template",
+              "payload":{
+                "template_type":"button",
+                "text":"ATM in Hlaing",
+                "buttons":[
+                  {
+                    "type":"web_url",
+                    "url":"https://www.google.com.mm/maps/dir/''/Kanbawza+Bank,+Kamaryut+Branch,+Yangon/@16.8325306,96.0623348,12z/data=!3m1!4b1!4m8!4m7!1m0!1m5!1m1!1s0x30c194b7f7af0dbd:0x920350f3e1dc3a1c!2m2!1d96.1323753!2d16.8325425",
+                    "title":"View On Map",
+                    "webview_height_ratio": "compact"
+                  }
+                ]
+              }
+            }
+          }
+          FacebookBot.new.send_generic_message(sender, mes)
+          FacebookBot.new.send_generic_message(sender, back_support) 
+        elsif text == "Lanmadaw" || text == "lanmadaw" || text == "lan ma daw" || text == "Lan Ma Daw"
+          mes = {
+            "attachment":{
+              "type":"template",
+              "payload":{
+                "template_type":"button",
+                "text":"ATM in Lanmadaw",
+                "buttons":[
+                  {
+                    "type":"web_url",
+                    "url":"https://www.google.com.mm/maps/dir/''/Kanbawza+Bank,+Kamaryut+Branch,+Yangon/@16.8325306,96.0623348,12z/data=!3m1!4b1!4m8!4m7!1m0!1m5!1m1!1s0x30c194b7f7af0dbd:0x920350f3e1dc3a1c!2m2!1d96.1323753!2d16.8325425",
+                    "title":"View On Map",
+                    "webview_height_ratio": "compact"
+                  }
+                ]
+              }
+            }
+          }
+          FacebookBot.new.send_generic_message(sender, mes)
+          FacebookBot.new.send_generic_message(sender, back_support)
         elsif text == "call"
           FacebookBot.new.send_text_message(sender, "Please Dial '01-538075', '01-538076', '01-538078'")
         elsif text == "atmlocation" || text == "ATM Locations"
