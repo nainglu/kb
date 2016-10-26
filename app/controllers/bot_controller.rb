@@ -42,7 +42,7 @@ class BotController < ApplicationController
               "attachment":{
               "type":"image",
               "payload":{
-              "url":"http://kbbot.herokuapp.com/images/cel.jpg"
+              "url":"http://kbbot.herokuapp.com/images/cel.JPG"
             }
           }
         }
