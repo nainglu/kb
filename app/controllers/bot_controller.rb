@@ -26,7 +26,7 @@ class BotController < ApplicationController
         elsif text == "more" || text == "More"
           FacebookBot.new.send_generic_message(sender, choose_more)
         elsif text == "faq" || text == "FAQs"
-          FacebookBot.new.send_text_message(sender, "hi")
+          FacebookBot.new.send_generic_message(sender, choose_faq)
         elsif text == "ျပန္လည္ေရြးခ်ယ္မည္"
           FacebookBot.new.send_generic_message(sender, choose_again_support)
         elsif text == "ျပန္လည္ေရြးခ်ယ္မည္။"
@@ -334,6 +334,35 @@ class BotController < ApplicationController
                   {
                     "type":"postback",
                     "title":"Currency Exchange",
+                    "payload":"exchange"
+                  },
+                  {
+                    "type":"postback",
+                    "title":"More ..",
+                    "payload":"more"
+                  }
+                ]
+              }
+            }
+          }
+    end
+
+    def choose_faq
+      mes = {
+            "attachment":{
+              "type":"template",
+              "payload":{
+                "template_type":"button",
+                "text":"Frequently Asked Questions.",
+                "buttons":[
+                  {
+                    "type":"postback",
+                    "title":"What do I do if I lose my credit card?",
+                    "payload":"atmservice"
+                  },
+                  {
+                    "type":"postback",
+                    "title":"What is Credit Card?",
                     "payload":"exchange"
                   },
                   {
