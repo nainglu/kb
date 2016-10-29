@@ -560,8 +560,8 @@ class BotController < ApplicationController
                   },
                   {
                     "type":"postback",
-                    "title":"Career",
-                    "payload":"career"
+                    "title":"More ...",
+                    "payload":"more"
                   }
                 ]
               }
