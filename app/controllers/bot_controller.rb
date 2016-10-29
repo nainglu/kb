@@ -25,6 +25,7 @@ class BotController < ApplicationController
               "type":"template",
               "payload":{
                 "template_type":"button",
+                "text": "",
                 "buttons":[
                   {
                     "type":"postback",
