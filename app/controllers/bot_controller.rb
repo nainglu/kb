@@ -23,10 +23,44 @@ class BotController < ApplicationController
           FacebookBot.new.send_generic_message(sender, choose_topic)
         elsif text == "atmservice" || text == "ATM Services"
           FacebookBot.new.send_generic_message(sender, choose_atm_topic)
-        elsif text == "more" || text == "More"
+        elsif text == "more" || text == "More ..."
           FacebookBot.new.send_generic_message(sender, choose_more)
         elsif text == "faq" || text == "FAQs"
           FacebookBot.new.send_generic_message(sender, choose_faq)
+        elsif text == "lostcard" || text == "I lost my credit card"
+          res = "Please call the Bank’s 24 hour customer service hotline immediately to report:
+          - For Platinum Card +95 137 0066
+          - For Classic Card  +95 137 0055"
+          FacebookBot.new.send_text_message(sender, res)
+          FacebookBot.new.send_generic_message(sender, back_support)
+        elsif text == "whatiscard" || text == "What is Credit Card?"
+          res = "Credit Card is a kind of unsecured personal loan provided through a “plastic card”, which can be used for payment of goods & services or cash withdrawal."
+          FacebookBot.new.send_text_message(sender, res)
+          FacebookBot.new.send_generic_message(sender, back_support)
+        elsif text == "atecard" || text == "ATM ate my card."
+          res = "Please call the Bank’s 24 hour customer service hotline immediately to report:
+          - (+95) 1-515216-18"
+          FacebookBot.new.send_text_message(sender, res)
+          FacebookBot.new.send_generic_message(sender, back_support)
+        elsif text == "tempblock" || text == "Want to do temporary block."
+          res = "Please call the Bank’s 24 hour customer service hotline immediately to report:
+          - (+95) 1-515216-18"
+          FacebookBot.new.send_text_message(sender, res)
+          FacebookBot.new.send_generic_message(sender, back_support)
+        elsif text == "newchip" || text == "Want new chip card?"
+          res = "At a chip-enabled terminal
+          - Instead of swiping, insert your card face up into the terminal
+          - Don’t take the card out until the transaction is complete
+          - Sign for your purchase or enter your PIN, if asked, and remove the card
+          At a traditional terminal without chip technology
+          - Just swipe your card as you’ve done in the past
+          - Sign for your purchase, if asked
+          For phone or online purchases
+          - Complete your purchases just as you’ve done in the past."
+          FacebookBot.new.send_text_message(sender, res)
+          FacebookBot.new.send_generic_message(sender, back_support)
+        elsif text == "morefaq" || text == "More .."
+          FacebookBot.new.send_generic_message(sender, choose_faq_more)
         elsif text == "ျပန္လည္ေရြးခ်ယ္မည္"
           FacebookBot.new.send_generic_message(sender, choose_again_support)
         elsif text == "ျပန္လည္ေရြးခ်ယ္မည္။"
@@ -338,7 +372,7 @@ class BotController < ApplicationController
                   },
                   {
                     "type":"postback",
-                    "title":"More ..",
+                    "title":"More ...",
                     "payload":"more"
                   }
                 ]
@@ -357,18 +391,47 @@ class BotController < ApplicationController
                 "buttons":[
                   {
                     "type":"postback",
-                    "title":"What do I do if I lose my credit card?",
-                    "payload":"atmservice"
+                    "title":"I lost my credit card",
+                    "payload":"lostcard"
                   },
                   {
                     "type":"postback",
                     "title":"What is Credit Card?",
-                    "payload":"exchange"
+                    "payload":"whatiscard"
                   },
                   {
                     "type":"postback",
                     "title":"More ..",
-                    "payload":"more"
+                    "payload":"morefaq"
+                  }
+                ]
+              }
+            }
+          }
+    end
+
+    def choose_faq_more
+      mes = {
+            "attachment":{
+              "type":"template",
+              "payload":{
+                "template_type":"button",
+                "text":"Frequently Asked Questions.",
+                "buttons":[
+                  {
+                    "type":"postback",
+                    "title":"ATM ate my card.",
+                    "payload":"atecard"
+                  },
+                  {
+                    "type":"postback",
+                    "title":"Want to do temporary block.",
+                    "payload":"tempblock"
+                  },
+                  {
+                    "type":"postback",
+                    "title":"Want new chip card?",
+                    "payload":"newchip"
                   }
                 ]
               }
