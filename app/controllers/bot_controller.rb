@@ -25,11 +25,10 @@ class BotController < ApplicationController
               "type":"template",
               "payload":{
                 "template_type":"button",
-                "text": "",
                 "buttons":[
                   {
                     "type":"postback",
-                    "title":"FAQs"
+                    "title":"FAQs",
                     "payload":"faq"
                   }
                 ]
