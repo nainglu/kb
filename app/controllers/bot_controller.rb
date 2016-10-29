@@ -276,6 +276,7 @@ class BotController < ApplicationController
           FacebookBot.new.send_generic_message(sender, back_support)
         elsif text == "call"
           FacebookBot.new.send_text_message(sender, "Please Dial '01-538075', '01-538076', '01-538078'")
+          FacebookBot.new.send_generic_message(sender, back_support)
         elsif text == "atmlocation" || text == "ATM Locations"
           res = "ေအာက္ေဖာ္ျပပါ ၿမိဳ႔နယ္မ်ားအနက္မွ ရွာေဖြလုိေသာ ၿမိဳ႕နယ္၏အမည္အား ေဖာ္ျပပါအတုိင္း ရုိက္ထည့္ပါ။"
           mes = "- Ahlone
