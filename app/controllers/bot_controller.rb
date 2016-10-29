@@ -240,16 +240,18 @@ class BotController < ApplicationController
           FacebookBot.new.send_text_message(sender, "Please Dial '01-538075', '01-538076', '01-538078'")
         elsif text == "atmlocation" || text == "ATM Locations"
           res = "ေအာက္ေဖာ္ျပပါ ၿမိဳ႔နယ္မ်ားအနက္မွ ရွာေဖြလုိေသာ ၿမိဳ႕နယ္၏အမည္အား ေဖာ္ျပပါအတုိင္း ရုိက္ထည့္ပါ။"
-          mes = {
-              "attachment":{
-              "type":"image",
-              "payload":{
-              "url":"http://kbbot.herokuapp.com/images/cel.JPG"
-            }
-          }
-        }
+          mes = "- Ahlone
+- Bahan
+- Dagon
+- Sanchaung
+- Tamwe
+- Pabedan
+- Hlaing
+- Latha
+- Kamaryut
+- Lanmadaw"
           FacebookBot.new.send_text_message(sender, res)
-          FacebookBot.new.send_generic_message(sender, mes)
+          FacebookBot.new.send_text_message(sender, mes)
         elsif text == "cardinfo" || text == "Card Informations"
           mes = {
             "attachment":{
@@ -308,7 +310,8 @@ class BotController < ApplicationController
   private
     def greeting
       ["မဂၤလာပါ", "ဟုိင္း", "Hi", "hi", "Hello", "hello", 
-        "HELLO", "HI", "Hey", "hey", "HEY"]
+        "HELLO", "HI", "Hey", "hey", "HEY", "Hello Customer Service", "hello customer service", "hi customer service",
+        "Hi Customer Service", "may sa yar shi lox"]
     end
 
     def choose_topic
