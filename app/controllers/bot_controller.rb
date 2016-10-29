@@ -20,7 +20,23 @@ class BotController < ApplicationController
       end
       unless text == "aaa"
         if greeting.include? text
+          mes = {
+            "attachment":{
+              "type":"template",
+              "payload":{
+                "template_type":"button",
+                "buttons":[
+                  {
+                    "type":"postback",
+                    "title":"FAQs"
+                    "payload":"faq"
+                  }
+                ]
+              }
+            }
+          }
           FacebookBot.new.send_generic_message(sender, choose_topic)
+          FacebookBot.new.send_generic_message(sender, mes)
         elsif text == "atmservice" || text == "ATM Services"
           FacebookBot.new.send_generic_message(sender, choose_atm_topic)
         elsif text == "ျပန္လည္ေရြးခ်ယ္မည္"
@@ -71,6 +87,8 @@ class BotController < ApplicationController
           FacebookBot.new.send_generic_message(sender, mes)
           FacebookBot.new.send_generic_message(sender, back_support)
         elsif text == "exchange" || text == "Currency Exchange"
+          res = "ေဖာ္ျပပါႏွူန္းထားမ်ားမွာ 25.10.2016 တြင္ရရွိေသာ ႏွူန္းထားမ်ားျဖစ္ပါသည္။"
+          FacebookBot.new.send_text_message(sender, res)
           FacebookBot.new.send_generic_message(sender, choose_currency)
           FacebookBot.new.send_generic_message(sender, back_support)
         elsif text == "career" || text == "Career"
