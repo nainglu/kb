@@ -25,6 +25,7 @@ class BotController < ApplicationController
               "type":"template",
               "payload":{
                 "template_type":"button",
+                "text": "",
                 "buttons":[
                   {
                     "type":"postback",
@@ -39,6 +40,8 @@ class BotController < ApplicationController
           FacebookBot.new.send_generic_message(sender, mes)
         elsif text == "atmservice" || text == "ATM Services"
           FacebookBot.new.send_generic_message(sender, choose_atm_topic)
+        elsif text == "faq" || text == "FAQs"
+          FacebookBot.new.send_text_message(sender, "hi")
         elsif text == "ျပန္လည္ေရြးခ်ယ္မည္"
           FacebookBot.new.send_generic_message(sender, choose_again_support)
         elsif text == "ျပန္လည္ေရြးခ်ယ္မည္။"
