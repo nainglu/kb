@@ -1,3 +1,20 @@
+Skip to content
+This repository
+Search
+Pull requests
+Issues
+Gist
+ @nainglu
+ Unwatch 1
+  Star 0
+  Fork 0 nainglu/kb
+ Code  Issues 0  Pull requests 0  Projects 0  Wiki  Pulse  Graphs  Settings
+Branch: master Find file Copy pathkb/app/controllers/bot_controller.rb
+1058f0b  10 days ago
+@nainglu nainglu shit
+1 contributor
+RawBlameHistory     
+649 lines (628 sloc)  25.6 KB
 class BotController < ApplicationController
 
   protect_from_forgery with: :null_session, only: Proc.new { |c| c.request.format.json? }
@@ -23,6 +40,46 @@ class BotController < ApplicationController
           FacebookBot.new.send_generic_message(sender, choose_topic)
         elsif text == "atmservice" || text == "ATM Services"
           FacebookBot.new.send_generic_message(sender, choose_atm_topic)
+        elsif text == "more" || text == "More ..."
+          FacebookBot.new.send_generic_message(sender, choose_more)
+        elsif text == "faq" || text == "FAQs"
+          FacebookBot.new.send_generic_message(sender, choose_faq)
+        elsif text == "lostcard" || text == "I lost my credit card"
+          res = "Please call the Bank’s 24 hour customer service hotline immediately to report:
+- For Platinum Card +95 137 0066
+- For Classic Card  +95 137 0055"
+          FacebookBot.new.send_text_message(sender, res)
+          FacebookBot.new.send_generic_message(sender, back_support)
+        elsif text == "whatiscard" || text == "What is Credit Card?"
+          res = "Credit Card is a kind of unsecured personal loan provided through a “plastic card”, which can be used for payment of goods & services or cash withdrawal."
+          FacebookBot.new.send_text_message(sender, res)
+          FacebookBot.new.send_generic_message(sender, back_support)
+        elsif text == "atecard" || text == "ATM ate my card."
+          res = "Please call the Bank’s 24 hour customer service hotline immediately to report:
+- (+95) 1-515216-18"
+          FacebookBot.new.send_text_message(sender, res)
+          FacebookBot.new.send_generic_message(sender, back_support)
+        elsif text == "tempblock" || text == "Want to do temporary block."
+          res = "Please call the Bank’s 24 hour customer service hotline immediately to report:
+- (+95) 1-515216-18"
+          FacebookBot.new.send_text_message(sender, res)
+          FacebookBot.new.send_generic_message(sender, back_support)
+        elsif text == "newchip" || text == "Want new chip card?"
+          res = "At a chip-enabled terminal
+- Instead of swiping, insert your card face up into the terminal
+- Don’t take the card out until the transaction is complete
+- Sign for your purchase or enter your PIN, if asked, and remove the card."
+          res1 = "At a traditional terminal without chip technology
+- Just swipe your card as you’ve done in the past
+- Sign for your purchase."
+          res2 = "If asked For phone or online purchases
+- Complete your purchases just as you’ve done in the past."
+          FacebookBot.new.send_text_message(sender, res)
+          FacebookBot.new.send_text_message(sender, res1)
+          FacebookBot.new.send_text_message(sender, res2)
+          FacebookBot.new.send_generic_message(sender, back_support)
+        elsif text == "morefaq" || text == "More .."
+          FacebookBot.new.send_generic_message(sender, choose_faq_more)
         elsif text == "ျပန္လည္ေရြးခ်ယ္မည္"
           FacebookBot.new.send_generic_message(sender, choose_again_support)
         elsif text == "ျပန္လည္ေရြးခ်ယ္မည္။"
@@ -30,7 +87,7 @@ class BotController < ApplicationController
         elsif text == "မေရြးခ်ယ္ေတာ့ပါ။"
           FacebookBot.new.send_generic_message(sender, generic)
         elsif text == "အစသုိ႔ျပန္သြားမည္။"
-          choose_topic[:attachment][:payload].merge!(text: "သိရွိလုိသည့္ အေၾကာင္းအရာကုိ ျပန္လည္ေရြးခ်ယ္ပါ။")
+          choose_topic[:attachment][:payload].merge!(text: "သိရွိလုိသည့္ အေၾကာင္းအရာကုိ ျပန္လည္ေရြးခ်ယ္ပါ။")
           FacebookBot.new.send_generic_message(sender, choose_topic)
         elsif text == "မလုပ္ေဆာင္ေတာ့ပါ။"
           FacebookBot.new.send_generic_message(sender, generic)
@@ -238,18 +295,21 @@ class BotController < ApplicationController
           FacebookBot.new.send_generic_message(sender, back_support)
         elsif text == "call"
           FacebookBot.new.send_text_message(sender, "Please Dial '01-538075', '01-538076', '01-538078'")
+          FacebookBot.new.send_generic_message(sender, back_support)
         elsif text == "atmlocation" || text == "ATM Locations"
-          res = "ေအာက္ေဖာ္ျပပါ ၿမိဳ႔နယ္မ်ားအနက္မွ ရွာေဖြလုိေသာ ၿမိဳ႕နယ္၏အမည္အား ေဖာ္ျပပါအတုိင္း ရုိက္ထည့္ပါ။"
-          mes = {
-              "attachment":{
-              "type":"image",
-              "payload":{
-              "url":"http://kbbot.herokuapp.com/images/cel.JPG"
-            }
-          }
-        }
+          res = "ေအာက္ေဖာ္ျပပါ ၿမိဳ႔နယ္မ်ားအနက္မွ ရွာေဖြလုိေသာ ၿမိဳ႕နယ္၏အမည္အား ေဖာ္ျပပါအတုိင္း ရုိက္ထည့္ပါ။"
+          mes = "- Ahlone
+- Bahan
+- Dagon
+- Sanchaung
+- Tamwe
+- Pabedan
+- Hlaing
+- Latha
+- Kamaryut
+- Lanmadaw"
           FacebookBot.new.send_text_message(sender, res)
-          FacebookBot.new.send_generic_message(sender, mes)
+          FacebookBot.new.send_text_message(sender, mes)
         elsif text == "cardinfo" || text == "Card Informations"
           mes = {
             "attachment":{
@@ -271,7 +331,7 @@ class BotController < ApplicationController
           FacebookBot.new.send_generic_message(sender, mes)
           FacebookBot.new.send_generic_message(sender, back_support)
         elsif text == "exchange" || text == "Currency Exchange"
-          res = "ေအာက္ေဖာ္ျပပါ ႏွူန္းထားမ်ားမွာ 25.10.2016 ရက္ေန႔တြင္ရရွိေသာ ႏွူန္းထားမ်ားျဖစ္ပါသည္။"
+          res = "ေဖာ္ျပပါႏွူန္းထားမ်ားမွာ 25.10.2016 တြင္ရရွိေသာ ႏွူန္းထားမ်ားျဖစ္ပါသည္။"
           FacebookBot.new.send_text_message(sender, res)
           FacebookBot.new.send_generic_message(sender, choose_currency)
           FacebookBot.new.send_generic_message(sender, back_support)
@@ -308,7 +368,8 @@ class BotController < ApplicationController
   private
     def greeting
       ["မဂၤလာပါ", "ဟုိင္း", "Hi", "hi", "Hello", "hello", 
-        "HELLO", "HI", "Hey", "hey", "HEY"]
+        "HELLO", "HI", "Hey", "hey", "HEY", "Hello Customer Service", "hello customer service", "hi customer service",
+        "Hi Customer Service", "may sa yar shi lox"]
     end
 
     def choose_topic
@@ -317,7 +378,7 @@ class BotController < ApplicationController
               "type":"template",
               "payload":{
                 "template_type":"button",
-                "text":"မဂၤလာပါရွင္။ ယခုလုိဆက္သြယ္ျခင္းအတြက္ ေက်းဇူးတင္ရွိပါတယ္။ မည္သည့္အေၾကာင္းအရာအတြက္ သိရွိလုိပါသလဲ။",
+                "text":"မဂၤလာပါရွင္။ ယခုလုိဆက္သြယ္ျခင္းအတြက္ ေက်းဇူးတင္ရွိပါတယ္။ မည္သည့္အေၾကာင္းအရာအတြက္ သိရွိလုိပါသလဲ။",
                 "buttons":[
                   {
                     "type":"postback",
@@ -331,8 +392,95 @@ class BotController < ApplicationController
                   },
                   {
                     "type":"postback",
+                    "title":"More ...",
+                    "payload":"more"
+                  }
+                ]
+              }
+            }
+          }
+    end
+
+    def choose_faq
+      mes = {
+            "attachment":{
+              "type":"template",
+              "payload":{
+                "template_type":"button",
+                "text":"Frequently Asked Questions.",
+                "buttons":[
+                  {
+                    "type":"postback",
+                    "title":"I lost my credit card",
+                    "payload":"lostcard"
+                  },
+                  {
+                    "type":"postback",
+                    "title":"What is Credit Card?",
+                    "payload":"whatiscard"
+                  },
+                  {
+                    "type":"postback",
+                    "title":"More ..",
+                    "payload":"morefaq"
+                  }
+                ]
+              }
+            }
+          }
+    end
+
+    def choose_faq_more
+      mes = {
+            "attachment":{
+              "type":"template",
+              "payload":{
+                "template_type":"button",
+                "text":"Frequently Asked Questions.",
+                "buttons":[
+                  {
+                    "type":"postback",
+                    "title":"ATM ate my card.",
+                    "payload":"atecard"
+                  },
+                  {
+                    "type":"postback",
+                    "title":"Want to do temporary block.",
+                    "payload":"tempblock"
+                  },
+                  {
+                    "type":"postback",
+                    "title":"Want new chip card?",
+                    "payload":"newchip"
+                  }
+                ]
+              }
+            }
+          }
+    end
+
+    def choose_more
+      mes = {
+            "attachment":{
+              "type":"template",
+              "payload":{
+                "template_type":"button",
+                "text":"သိရွိလုိေသာအေၾကာင္းအရာကို ထပ္မံေရြးခ်ယ္ပါ။",
+                "buttons":[
+                  {
+                    "type":"postback",
                     "title":"Career",
                     "payload":"career"
+                  },
+                  {
+                    "type":"postback",
+                    "title":"FAQs",
+                    "payload":"faq"
+                  },
+                  {
+                    "type":"postback",
+                    "title":"Contact",
+                    "payload":"call"
                   }
                 ]
               }
@@ -418,7 +566,7 @@ class BotController < ApplicationController
               "type":"template",
               "payload":{
                 "template_type":"button",
-                "text":"သိရွိလုိသည့္ အမ်ဴိးအစားကုိ ျပန္လည္ေရြးခ်ယ္ပါ။",
+                "text":"သိရွိလုိသည့္ အမ်ဴိးအစားကုိ ျပန္လည္ေရြးခ်ယ္ပါ။",
                 "buttons":[
                   {
                     "type":"postback",
@@ -432,8 +580,8 @@ class BotController < ApplicationController
                   },
                   {
                     "type":"postback",
-                    "title":"Career",
-                    "payload":"career"
+                    "title":"More ...",
+                    "payload":"more"
                   }
                 ]
               }
@@ -514,4 +662,3 @@ class BotController < ApplicationController
         }
     end
 end
-
