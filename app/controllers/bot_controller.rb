@@ -350,7 +350,6 @@ class BotController < ApplicationController
 
   private
     def greeting
-      byebug
       ["မဂၤလာပါ", "ဟုိင္း", "Hi", "hi", "Hello", "hello", 
         "HELLO", "HI", "Hey", "hey", "HEY", "Hello Customer Service", "hello customer service", "hi customer service",
         "Hi Customer Service", "may sa yar shi lox"]
