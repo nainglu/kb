@@ -370,8 +370,8 @@ class BotController < ApplicationController
                   },
                   {
                     "type":"postback",
-                    "title":"Currency Exchange",
-                    "payload":"exchange"
+                    "title":"FAQs",
+                    "payload":"faq"
                   },
                   {
                     "type":"postback",
@@ -457,8 +457,8 @@ class BotController < ApplicationController
                   },
                   {
                     "type":"postback",
-                    "title":"FAQs",
-                    "payload":"faq"
+                    "title":"Currency Exchange",
+                    "payload":"exchange"
                   },
                   {
                     "type":"postback",
@@ -558,8 +558,8 @@ class BotController < ApplicationController
                   },
                   {
                     "type":"postback",
-                    "title":"Currency Exchange",
-                    "payload":"exchange"
+                    "title":"FAQs",
+                    "payload":"faq"
                   },
                   {
                     "type":"postback",
