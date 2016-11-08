@@ -1,20 +1,3 @@
-Skip to content
-This repository
-Search
-Pull requests
-Issues
-Gist
- @nainglu
- Unwatch 1
-  Star 0
-  Fork 0 nainglu/kb
- Code  Issues 0  Pull requests 0  Projects 0  Wiki  Pulse  Graphs  Settings
-Branch: master Find file Copy pathkb/app/controllers/bot_controller.rb
-1058f0b  10 days ago
-@nainglu nainglu shit
-1 contributor
-RawBlameHistory     
-649 lines (628 sloc)  25.6 KB
 class BotController < ApplicationController
 
   protect_from_forgery with: :null_session, only: Proc.new { |c| c.request.format.json? }
