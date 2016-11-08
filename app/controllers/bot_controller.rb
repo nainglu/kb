@@ -4,6 +4,7 @@ class BotController < ApplicationController
 
   def webhook
     if params["hub.verify_token"] == "my_voice_is_my_voice_verify_me"
+      puts "you are here"
       render json: params["hub.challenge"]
     end
     unless params["entry"].nil? || params["entry"].empty?
